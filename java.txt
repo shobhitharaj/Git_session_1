@@ -1,0 +1,949 @@
+1.Uses the ternary operator to check if the first number is greater than the second and prints the appropriate message.
+Ans:num1 = 10
+num2 = 5
+
+# Ternary operator to check and print the message
+print("First number is greater" if num1 > num2 else "First number is not greater")
+
+2. Write a Java program that takes three integer inputs and determines the second largest number among them.
+Ans:import java.util.Scanner;
+
+public class SecondLargest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input three integers
+        System.out.print("Enter first number: ");
+        int a = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = scanner.nextInt();
+
+        System.out.print("Enter third number: ");
+        int c = scanner.nextInt();
+
+        int secondLargest;
+
+        // Logic to find the second largest
+        if ((a > b && a < c) || (a < b && a > c)) {
+            secondLargest = a;
+        } else if ((b > a && b < c) || (b < a && b > c)) {
+            secondLargest = b;
+        } else {
+            secondLargest = c;
+        }
+
+        System.out.println("The second largest number is: " + secondLargest);
+    }
+}
+
+
+3.Write a program to check if a given year is a leap year or not using nested if-else statements.
+Ans:import java.util.Scanner;
+
+public class LeapYearCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input year from the user
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+
+        // Check if it's a leap year using nested if-else
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    System.out.println(year + " is a leap year.");
+                } else {
+                    System.out.println(year + " is not a leap year.");
+                }
+            } else {
+                System.out.println(year + " is a leap year.");
+            }
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+    }
+}
+
+4.Write a Java program that reads two numbers and prints the maximum of the two using the ternary operator.
+Ans:import java.util.Scanner;
+
+public class MaxUsingTernary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input two numbers
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        // Use ternary operator to find the maximum
+        int max = (num1 > num2) ? num1 : num2;
+
+        System.out.println("The maximum number is: " + max);
+    }
+}
+
+5.Write a Java program that takes a month number (1-12) as input and prints the number of days in that month. 
+Ans:import java.util.Scanner;
+
+public class DaysInMonth {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input month number
+        System.out.print("Enter month number (1-12): ");
+        int month = scanner.nextInt();
+
+        int days;
+
+        // Determine number of days in the month
+        if (month == 1 || month == 3 || month == 5 || month == 7 ||
+            month == 8 || month == 10 || month == 12) {
+            days = 31;
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            days = 30;
+        } else if (month == 2) {
+            days = 28; // Assuming non-leap year
+        } else {
+            days = -1; // Invalid month
+        }
+
+        // Output result
+        if (days == -1) {
+            System.out.println("Invalid month number. Please enter a value between 1 and 12.");
+        } else {
+            System.out.println("Number of days in month " + month + " is: " + days);
+        }
+    }
+}
+
+6.Write a program that takes a string input for a weekday (e.g., "Monday") and prints whether it is a working day or weekend using a switch statement.
+Ans:import java.util.Scanner;
+
+public class WeekdayCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input weekday name
+        System.out.print("Enter a weekday (e.g., Monday): ");
+        String day = scanner.nextLine().toLowerCase(); // Convert to lowercase for consistency
+
+        switch (day) {
+            case "monday":
+            case "tuesday":
+            case "wednesday":
+            case "thursday":
+            case "friday":
+                System.out.println(day.substring(0, 1).toUpperCase() + day.substring(1) + " is a working day.");
+                break;
+
+            case "saturday":
+            case "sunday":
+                System.out.println(day.substring(0, 1).toUpperCase() + day.substring(1) + " is a weekend.");
+                break;
+
+            default:
+                System.out.println("Invalid weekday entered.");
+        }
+    }
+}
+
+7.Write a Java program that determines whether a person is eligible to donate blood. The person should be at least 18 years old and have a weight of 50 kg or more.
+Ans:import java.util.Scanner;
+
+public class BloodDonationEligibility {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input age and weight
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        System.out.print("Enter your weight (in kg): ");
+        int weight = scanner.nextInt();
+
+        // Check eligibility
+        if (age >= 18) {
+            if (weight >= 50) {
+                System.out.println("You are eligible to donate blood.");
+            } else {
+                System.out.println("You are not eligible to donate blood due to insufficient weight.");
+            }
+        } else {
+            System.out.println("You are not eligible to donate blood due to age.");
+        }
+    }
+}
+
+8.Write a Java program to categorize a student’s grade based on their marks:
+90-100 → A
+80-89 → B
+70-79 → C
+60-69 → D
+Below 60 → Fail
+Ans:import java.util.Scanner;
+
+public class GradeCategorizer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input marks
+        System.out.print("Enter your marks (0-100): ");
+        int marks = scanner.nextInt();
+
+        // Validate marks and determine grade
+        if (marks >= 0 && marks <= 100) {
+            if (marks >= 90) {
+                System.out.println("Grade: A");
+            } else if (marks >= 80) {
+                System.out.println("Grade: B");
+            } else if (marks >= 70) {
+                System.out.println("Grade: C");
+            } else if (marks >= 60) {
+                System.out.println("Grade: D");
+            } else {
+                System.out.println("Grade: Fail");
+            }
+        } else {
+            System.out.println("Invalid marks entered. Please enter a value between 0 and 100.");
+        }
+    }
+}
+
+9.Write a Java program that asks the user to enter two numbers and an operator (+, -, *, /). Use a switch statement to perform the operation and print the result.
+Ans:import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input two numbers
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Input operator
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        double result;
+
+        // Perform operation using switch
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+
+            case '-':
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+
+            case '*':
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
+
+            default:
+                System.out.println("Invalid operator entered.");
+        }
+    }
+}
+
+10.	Write a program that takes a password as input and checks if it matches a predefined password. If it matches, print "Access Granted", else print "Access Denied".
+
+
+ChatGPT said:
+Here's a Java program that:
+
+Takes a password as input from the user
+
+Compares it to a predefined password
+
+Prints "Access Granted" if it matches, otherwise "Access Denied"
+
+java
+Copy code
+import java.util.Scanner;
+
+public class PasswordCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Predefined password
+        String correctPassword = "OpenSesame123";
+
+        // Input from user
+        System.out.print("Enter password: ");
+        String inputPassword = scanner.nextLine();
+
+        // Check password
+        if (inputPassword.equals(correctPassword)) {
+            System.out.println("Access Granted");
+        } else {
+            System.out.println("Access Denied");
+        }
+    }
+}
+
+
+11.Write Java program that takes a person's age as input. If the person is under 18, print "Minor". If 18 or above, ask for their employment type ("Student", "Employee", "Unemployed") using a switch case and print a response accordingly
+Ans:import java.util.Scanner;
+
+public class AgeEmploymentChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input age
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();  // Consume newline
+
+        if (age < 18) {
+            System.out.println("Minor");
+        } else {
+            System.out.print("Enter your employment type (Student, Employee, Unemployed): ");
+            String employmentType = scanner.nextLine().toLowerCase();
+
+            switch (employmentType) {
+                case "student":
+                    System.out.println("You are a student.");
+                    break;
+
+                case "employee":
+                    System.out.println("You are employed.");
+                    break;
+
+                case "unemployed":
+                    System.out.println("You are currently unemployed.");
+                    break;
+
+                default:
+                    System.out.println("Invalid employment type entered.");
+            }
+        }
+    }
+}
+
+12.Sum of Digits. Write a program to find the sum of digits of a given number using a loop.
+Ans:import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int sum = 0;
+        int temp = Math.abs(number);  // Handle negative numbers
+
+        // Loop to sum digits
+        while (temp > 0) {
+            int digit = temp % 10;  // Extract last digit
+            sum += digit;           // Add digit to sum
+            temp /= 10;             // Remove last digit
+        }
+
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+
+13.Write a program to reverse a given number using a loop.
+Ans:import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int reversed = 0;
+        int temp = Math.abs(number);  // Handle negative numbers
+
+        while (temp > 0) {
+            int digit = temp % 10;       // Extract last digit
+            reversed = reversed * 10 + digit; // Append digit
+            temp /= 10;                  // Remove last digit
+        }
+
+        // If original number was negative, add negative sign back
+        if (number < 0) {
+            reversed = -reversed;
+        }
+
+        System.out.println("Reversed number: " + reversed);
+    }
+}
+
+
+14.Write a program to check whether a given number is prime using a loop.
+Ans:import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number <= 1) {
+            System.out.println(number + " is not a prime number.");
+            return;
+        }
+
+        boolean isPrime = true;
+
+        // Check for factors from 2 to sqrt(number)
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;  // No need to check further
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+    }
+}
+
+
+15.Write a program to print the first N Fibonacci numbers using a loop.
+Ans:import java.util.Scanner;
+
+public class FibonacciSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number of terms
+        System.out.print("Enter the number of Fibonacci terms to print: ");
+        int n = scanner.nextInt();
+
+        int a = 0, b = 1;
+
+        if (n <= 0) {
+            System.out.println("Please enter a positive integer.");
+        } else if (n == 1) {
+            System.out.println("Fibonacci sequence: " + a);
+        } else {
+            System.out.print("Fibonacci sequence: " + a + " " + b);
+
+            for (int i = 3; i <= n; i++) {
+                int next = a + b;
+                System.out.print(" " + next);
+                a = b;
+                b = next;
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+16.Write a program to calculate the factorial of a number using a loop.
+Ans:import java.util.Scanner;
+
+public class FactorialCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a non-negative integer: ");
+        int number = scanner.nextInt();
+
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+            return;
+        }
+
+        long factorial = 1;  // Use long to handle large results
+
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial of " + number + " is: " + factorial);
+    }
+}
+
+
+17.Write a program to check if a given number is an Armstrong number.
+(An Armstrong number is a number that is equal to the sum of cubes of its digits.)
+Ans:import java.util.Scanner;
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int originalNumber = number;
+        int sum = 0;
+
+        while (number > 0) {
+            int digit = number % 10;
+            sum += digit * digit * digit;  // Cube of digit
+            number /= 10;
+        }
+
+        if (sum == originalNumber) {
+            System.out.println(originalNumber + " is an Armstrong number.");
+        } else {
+            System.out.println(originalNumber + " is not an Armstrong number.");
+        }
+    }
+}
+
+
+18.Write a program to check if a number is a palindrome (reads the same forward and backward).
+Ans:import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int originalNumber = number;
+        int reversed = 0;
+
+        // Reverse the number
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+
+        // Check if palindrome
+        if (originalNumber == reversed) {
+            System.out.println(originalNumber + " is a palindrome number.");
+        } else {
+            System.out.println(originalNumber + " is not a palindrome number.");
+        }
+    }
+}
+
+
+19.Write a program to print the following pattern using loops.
+	1  
+	12  
+	123  
+	1234  
+	12345  
+	Write a program to separate and sum the even and odd numbers from 1 to N.
+Ans:import java.util.Scanner;
+
+public class NumberPattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows: ");
+        int n = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {           // Loop for rows
+            for (int j = 1; j <= i; j++) {       // Print numbers from 1 to i
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+26.Write a program to find the largest element in a given array.
+Ans:import java.util.Scanner;
+
+public class LargestInArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input size of array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] arr = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Initialize largest with first element
+        int largest = arr[0];
+
+        // Find largest element
+        for (int i = 1; i < size; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+
+        System.out.println("Largest element in the array is: " + largest);
+    }
+}
+
+27.Write a program to find the smallest element in a given array.
+Ans:import java.util.Scanner;
+
+public class SmallestInArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input size of array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] arr = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Initialize smallest with first element
+        int smallest = arr[0];
+
+        // Find smallest element
+        for (int i = 1; i < size; i++) {
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+            }
+        }
+
+        System.out.println("Smallest element in the array is: " + smallest);
+    }
+}
+
+
+28.Write a program to calculate the sum of all elements in an array.
+Ans:import java.util.Scanner;
+
+public class SumOfArrayElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input size of array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] arr = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int sum = 0;
+
+        // Calculate sum
+        for (int i = 0; i < size; i++) {
+            sum += arr[i];
+        }
+
+        System.out.println("Sum of all elements in the array is: " + sum);
+    }
+}
+
+29.Write a program to reverse the elements of an array.
+Ans:import java.util.Scanner;
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input size of array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] arr = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Reverse the array in-place
+        for (int i = 0; i < size / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[size - 1 - i];
+            arr[size - 1 - i] = temp;
+        }
+
+        // Print reversed array
+        System.out.println("Reversed array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+30.Write a program to count how many numbers in an array are even and how many are odd.
+Ans:import java.util.Scanner;
+
+public class CountEvenOdd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input size of array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] arr = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int evenCount = 0;
+        int oddCount = 0;
+
+        // Count even and odd numbers
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        System.out.println("Number of even elements: " + evenCount);
+        System.out.println("Number of odd elements: " + oddCount);
+    }
+}
+
+
+31.Write a program to calculate the sum of all elements in a 2D array.
+Ans:import java.util.Scanner;
+
+public class SumOf2DArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input dimensions of 2D array
+        System.out.print("Enter number of rows: ");
+        int rows = scanner.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] arr = new int[rows][cols];
+
+        // Input elements of 2D array
+        System.out.println("Enter elements of the 2D array:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+
+        int sum = 0;
+
+        // Calculate sum of all elements
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum += arr[i][j];
+            }
+        }
+
+        System.out.println("Sum of all elements in the 2D array is: " + sum);
+    }
+}
+
+
+32.Write a program to find the largest number in a 2D array.
+Ans:import java.util.Scanner;
+
+public class LargestIn2DArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input dimensions of 2D array
+        System.out.print("Enter number of rows: ");
+        int rows = scanner.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] arr = new int[rows][cols];
+
+        // Input elements of 2D array
+        System.out.println("Enter elements of the 2D array:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+
+        int largest = arr[0][0];
+
+        // Find largest element
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (arr[i][j] > largest) {
+                    largest = arr[i][j];
+                }
+            }
+        }
+
+        System.out.println("Largest number in the 2D array is: " + largest);
+    }
+}
+``
+
+33.Write a program to find the maximum value of each row and each column in a 2D array.
+Ans:import java.util.Scanner;
+
+public class MaxInRowsAndColumns {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input dimensions of 2D array
+        System.out.print("Enter number of rows: ");
+        int rows = scanner.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] arr = new int[rows][cols];
+
+        // Input elements of 2D array
+        System.out.println("Enter elements of the 2D array:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Find max in each row
+        System.out.println("Maximum values of each row:");
+        for (int i = 0; i < rows; i++) {
+            int maxRow = arr[i][0];
+            for (int j = 1; j < cols; j++) {
+                if (arr[i][j] > maxRow) {
+                    maxRow = arr[i][j];
+                }
+            }
+            System.out.println("Row " + (i + 1) + ": " + maxRow);
+        }
+
+        // Find max in each column
+        System.out.println("Maximum values of each column:");
+        for (int j = 0; j < cols; j++) {
+            int maxCol = arr[0][j];
+            for (int i = 1; i < rows; i++) {
+                if (arr[i][j] > maxCol) {
+                    maxCol = arr[i][j];
+                }
+            }
+            System.out.println("Column " + (j + 1) + ": " + maxCol);
+        }
+    }
+}
+
+
+34.Write a program to reverse a given string.
+Ans:import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input string
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        String reversed = "";
+
+        // Reverse the string using a loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
+        }
+
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+
+
+35. Count the number of vowels(a,e,i,o,e) in a given string.
+Ans:import java.util.Scanner;
+
+public class VowelCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input string
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine().toLowerCase();  // Convert to lowercase for easy comparison
+
+        int vowelCount = 0;
+
+        // Count vowels
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
+            }
+        }
+
+        System.out.println("Number of vowels in the string: " + vowelCount);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
